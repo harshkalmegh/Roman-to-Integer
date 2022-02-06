@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * Algorithm
+     * 1. create a function to get integer from roman accepts one Arguments as Roman
+     * 2. handle edgecases (return Enter proper Value)
+     * 3. provide value to particular roman
+     * 4. split the input into array
+     * 5. loop the array and add the values and store output in result variable
+     * 6. return the result
+     * */
+
+    var romanToInt = function (s) {
+      const arr = s.split("");
+      let output = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "I") {
+          arr[i] = 1;
+          output = output + arr[i];
+        }
+        if (arr[i] === "V") {
+          arr[i] = 5;
+          output = output + arr[i];
+        }
+        if (arr[i] === "X") {
+          arr[i] = 10;
+          output = output + arr[i];
+        }
+        if (arr[i] === "L") {
+          arr[i] = 50;
+          output = output + arr[i];
+        }
+        if (arr[i] === "C") {
+          arr[i] = 100;
+          output = output + arr[i];
+        }
+        if (arr[i] === "D") {
+          arr[i] = 500;
+          output = output + arr[i];
+        }
+        if (arr[i] === "M") {
+          arr[i] = 1000;
+          output = output + arr[i];
+        }
+      }
+      return output;
+    };
+
+    console.log(romanToInt("MCMXCIV"));
+  </script>
+</html>
