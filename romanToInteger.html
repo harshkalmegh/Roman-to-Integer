@@ -19,36 +19,83 @@
      * */
 
     var romanToInt = function (s) {
+      const obj = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000,
+      };
+      // debugger;
+      const { I, V, X, L, C, D, M } = obj;
       const arr = s.split("");
       let output = 0;
+      // console.log("arr", arr);
       for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "I" && arr[i + 1] === "V") {
+          const result = V - I;
+          output = output + result;
+          //arr.shift();
+          arr.shift();
+          continue;
+        }
+        if (arr[i] === "I" && arr[i + 1] === "X") {
+          const result = X - I;
+          output = output + result;
+          arr.shift();
+          // arr.shift();
+          continue;
+        }
+        if (arr[i] === "X" && arr[i + 1] === "L") {
+          const result = L - X;
+          output = output + result;
+          arr.shift();
+          //arr.shift();
+          continue;
+        }
+        if (arr[i] === "X" && arr[i + 1] === "C") {
+          const result = C - X;
+          output = output + result;
+          arr.shift();
+          //arr.shift();
+          continue;
+        }
+        if (arr[i] === "C" && arr[i + 1] === "D") {
+          const result = D - C;
+          output = output + result;
+          //arr.shift();
+          arr.shift();
+          continue;
+        }
+        if (arr[i] === "C" && arr[i + 1] === "M") {
+          const result = M - C;
+          output = output + result;
+          //arr.shift();
+          arr.shift();
+          continue;
+        }
         if (arr[i] === "I") {
-          arr[i] = 1;
-          output = output + arr[i];
+          output = output + I;
         }
         if (arr[i] === "V") {
-          arr[i] = 5;
-          output = output + arr[i];
+          output = output + V;
         }
         if (arr[i] === "X") {
-          arr[i] = 10;
-          output = output + arr[i];
+          output = output + X;
         }
         if (arr[i] === "L") {
-          arr[i] = 50;
-          output = output + arr[i];
+          output = output + L;
         }
         if (arr[i] === "C") {
-          arr[i] = 100;
-          output = output + arr[i];
+          output = output + C;
         }
         if (arr[i] === "D") {
-          arr[i] = 500;
-          output = output + arr[i];
+          output = output + D;
         }
         if (arr[i] === "M") {
-          arr[i] = 1000;
-          output = output + arr[i];
+          output = output + M;
         }
       }
       return output;
